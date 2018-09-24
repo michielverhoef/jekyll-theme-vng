@@ -1,9 +1,41 @@
+{% comment %}
+    {%- assign default_paths = site.pages | map: "path" -%}
+    Map site.pages to a variable
+    Use where clause to get pages based on the mapped values
+{% endcomment %}
+
 <header>
-    <nav>
-        <a href="{{"/"|relative_url }}">Home</a>&nbsp;|&nbsp;
-        {{ site.baseurl }}
-        {% for page in site.pages %}
-            <a href="{{ page.url | relative_url }}">{{ page.title }}</a>&nbsp;|&nbsp;
-        {% endfor %}
-    </nav>
+        <div class="container">
+            <nav>
+                <ul class="nav justify-content-end">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{"/"|relative_url }}">{{ site.title }}</a>
+                    </li>
+                    {% for item in site.pages %}
+                        <li class="nav-item">
+                            <a class="nav-link{% if item.url == page.url %} active{% endif %}" href="{{ item.url|relative_url }}">{{ item.title | escape }}</a>
+                        </li>
+                    {% endfor %}
+                </ul>  
+            </nav>  
+        </div>
+        <nav class="navbar navbar-expand-lg navbar-light border-top">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#headerNavbarContent" aria-controls="headerNavbarContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <a class="navbar-brand" href="{{"/"|relative_url}}">VNG</a>
+            <div class="collapse navbar-collapse" id="headerNavbarContent">
+                <ul class="navbar-nav mr-auto">
+                    {% for item in site.pages %}
+                        <li class="nav-item{% if item.url == page.url %} active{% endif %}">
+                            <a class="nav-link" href="{{ item.url | relative_url }}">{{ item.link }}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+                <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Zoeken" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Zoeken</button>
+                </form>
+            </div>
+        </nav>
 </header>
