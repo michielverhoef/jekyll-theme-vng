@@ -1,0 +1,9 @@
+<header>
+    <nav>
+        <a href="{{"/"|relative_url }}">Home</a>&nbsp;|&nbsp;
+        {{ site.baseurl }}
+        {% for page in site.pages %}
+            <a href="{{ page.url | relative_url }}">{{ page.title }}</a>&nbsp;|&nbsp;
+        {% endfor %}
+    </nav>
+</header>
