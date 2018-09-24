@@ -1,0 +1,22 @@
+{% assign breadcrumb = page.url | split: "/" | shift %}
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a href="{{ "/" | relative_url }}">Home</a>
+        </li>
+        {% assign path = "" %}
+        {% for crumb in breadcrumb %}
+            {% if forloop.last %}
+            <li class="breadcrumb-item active" aria-current="page">
+                {{ page.title }}
+            </li>
+            {% else %}
+            {% assign path = path | append:"/" | append: crumb %}
+                <li class="breadcrumb-item">
+                    <a href="{{ path|relative_url }}">{{ crumb }}</a>
+                </li>
+            {% endif %}
+        {% endfor %}
+    </ol>
+</nav>
+
