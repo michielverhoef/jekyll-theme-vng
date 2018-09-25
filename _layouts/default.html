@@ -5,10 +5,33 @@
     
     <main>
         <div>
-            {% include breadcrumb.html %}
+            <div>
+                {% include breadcrumb.html %}
+            </div>
+            <div class="overlap-img">
+                <img class="img-fluid d-block my-0 mx-auto" data-src="holder.js/1400x480?auto=yes">
+            </div>
         </div>
-        <h1>{{ page.title }}</h1>
-        {{ content }}
+        <div class="container">
+            <div class="row">
+                <article class="col-12 col-md-8 bg-light px-5 pt-5">
+                    <h1>{{ page.title }}</h1>
+                    {{ content }}
+                </article>
+                <aside class="col-12 col-md-4">
+                    {{ page.date|default: "Datum onbekend" }}
+                </aside>
+            </div>
+            <section class="px-5 pb-5">
+                <div class="row">
+                    <section class="col-12 col-md-8">
+                        <h3>Deel deze pagina</h3>
+                        <a href="#">Facebook</a>
+                        <a href="#">Twitter</a>
+                    </section>
+                </div>
+            </section>
+        </div>
     </main>
     {% include footer.html %}
 </body>
