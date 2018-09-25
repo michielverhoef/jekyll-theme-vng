@@ -1,0 +1,67 @@
+@import "variables";
+@import "bootstrap/bootstrap";
+
+@font-face {
+    font-family: 'icomoon';
+    // src:  url('fonts/icomoon.eot?p03tkt');
+    // src:  url('fonts/icomoon.eot?p03tkt#iefix') format('embedded-opentype'),
+    src: url('fonts/icomoon.woff?p03tkt') format('woff');
+    //   url('fonts/icomoon.svg?p03tkt#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.navbar {
+    .nav-link {
+        margin-left: 0;
+        padding: 35px 5px;
+        font-size: 20px;
+        color: $nav-link-color;
+        border-bottom: 5px solid transparent;
+
+        &:hover, &:focus {
+            border-bottom: 5px solid $theme-orange;
+            color: $nav-link-color;
+        }
+    }
+
+    .navbar-brand {
+        margin-right: 60px;
+    }
+}
+
+.navbar {
+    .nav-menu-link {
+        text-decoration: underline;
+    }
+}
+
+
+
+header {
+    background-color: $white;
+    nav {
+        padding: 0;
+    }
+}
+
+.top-header {
+    height: 45px;
+}
+
+.main-header {
+    &::before {
+        //content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        border-top: 1px solid #EEE;
+        // content: "\e986";
+        // font-family: icomoon;
+        
+    }
+}
+
+.overlap-img {
+    margin-bottom: -5%;
+}
