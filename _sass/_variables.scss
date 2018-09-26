@@ -1,18 +1,40 @@
-$blue:    #007bff !default;
+$black: #000 !default;
 
+$theme-orange: #ed4e1b;
 $theme-blue: #00a9f3;
 $theme-dark-blue: #004c7d;
-$theme-orange: #ed4e1b;
+$theme-blue-gray: #d9ebf7;
+$theme-gray:#d8d8d8;
+$theme-dark-gray:#535353;
+
 
 $body-bg: #f3f3f3 !default;
-$body-color: #000 !default;
+$body-color: $black !default;
+
+$border-radius: 0 !default;
+$border-radius-lg: 0 !default;
+$border-radius-sm: 0 !default;
 
 // $link-hover-decoration: none;
 $link-color: $theme-dark-blue !default;
 $link-hover-color: $theme-dark-blue !default;
 $nav-link-color: $theme-dark-blue !default;
 
+$input-placeholder-color: $black;
+
+$breadcrumb-bg: $theme-blue !default;
+$breadcrumb-divider: quote(">") !default;
+$breadcrumb-divider-color: $black !default;
+$breadcrumb-active-color: $black !default;
 
 
 $line-height-base: 1.75 !default;
+$line-height-sm: 1.53 !default;
+
+$container-max-widths: (
+  sm: 768px,
+  md: 992px,
+  lg: 1180px,
+  xl: 1180px
+) !default;
 

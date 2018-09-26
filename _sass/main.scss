@@ -11,6 +11,9 @@
     font-style: normal;
 }
 
+/***
+    Header 
+***/
 .navbar {
     .nav-link {
         margin-left: 0;
@@ -36,8 +39,6 @@
     }
 }
 
-
-
 header {
     background-color: $white;
     nav {
@@ -51,17 +52,196 @@ header {
 
 .main-header {
     &::before {
-        //content: "";
+        content: "";
         position: absolute;
         left: 0;
         right: 0;
-        border-top: 1px solid #EEE;
-        // content: "\e986";
-        // font-family: icomoon;
-        
+        border-top: 1px solid #EEE;        
     }
 }
 
-.overlap-img {
-    margin-bottom: -5%;
+.input-search {
+    padding-right: 30px;
+    background-color: $body-bg;
+    height: 38px;
+    line-height: 38px;
+    border: 0px;
+
+    &:focus {
+        background: $body-bg;
+        border: none;
+        outline: none;
+        box-shadow: none;
+    }
+}
+
+.btn-search {
+    display: inline-block;
+    // height: 38px;
+    // width: auto;
+    // line-height: 38px;
+    background-color: $theme-blue-gray;
+    color: #000;
+
+    &:hover, &:active, &:focus {
+        background-color: $theme-blue-gray;
+        color: #000;
+    }
+}
+
+.dummy {   
+    form {
+        position: relative;
+    }
+
+    .form-actions {
+        position: absolute;
+        top: 0;
+        right: 0;
+
+        &::before {
+            position: absolute;
+            height: 38px;
+            line-height: 38px;
+            right: 20px;
+            font-size: 18px;
+        }
+
+        button {
+            width: 50px;
+            height: 38px;
+            z-index: 4;
+            position: relative;
+            opacity: .01;
+        }
+    }
+}
+
+.icon-search::before, .dummy .form-actions::before {
+    content: "\e986";
+    font-family: icomoon;
+    color: $theme-dark-blue;
+}
+
+/***
+    Breadcrumb
+***/
+.breadcrumb {
+    line-height: $line-height-sm;
+    position: relative;
+
+    a {
+        color: $black;
+        text-decoration: none;
+    }
+
+    &::before, &::after {
+        content: '';
+        background: inherit;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+    }
+
+    &::before {
+        right: 100%;
+        width: 100vw;
+    }
+    &::after {
+        left: 100%;
+        width: 100vw;
+    }
+}
+
+// Text scaling depending on view size
+/***
+    Page content
+***/
+@media (min-width:768px) {
+    .row {
+        -ms-flex-wrap: nowrap!important;
+        flex-wrap: nowrap!important;
+    }
+
+    .layout-content {
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 67.826%;
+        flex: 0 0 67.826%;
+        max-width: 67.826%;
+        position: relative;
+        z-index: 1;
+    }
+
+    .layout-sidebar {
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 32.174%;
+        flex: 0 0 32.174%;
+        max-width: 780px;
+    }
+
+    aside {
+        &.layout-sidebar {
+            padding: 20px 15px 0;
+
+            &.has-header-image {
+                margin-top: 30px;
+            }
+        }
+    }
+}
+
+@media(min-width: 1024) {
+    aside {
+        &.layout-sidebar {
+            margin-top: 52px;
+            padding-left: 30px;
+            &.has-header-image {
+                margin-top: 230px;
+            }
+        }
+    }
+}
+
+@media (max-width: 1023px) {
+    .page-header-img {
+        margin-bottom: -30px;
+    }   
+}
+
+@media (min-width:1200px) {
+    .layout-content {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}
+
+.page-header-img {
+    padding: 0;
+    margin: 0 0 -215px 0;
+}
+
+.page-title {
+    margin-bottom: 0;
+    &::after { 
+        content: "";
+        background: $theme-gray;
+        height: 1px;
+        width: 97px;
+        display: block;
+        margin-top: 20px;
+    }
+}
+
+.container-main {  
+    padding-bottom: 38px;
+}
+
+aside {
+    &.layout-sidebar {
+        color: $theme-dark-gray;
+        
+        .region-sidecontent {
+            
+        }
+    }
 }
