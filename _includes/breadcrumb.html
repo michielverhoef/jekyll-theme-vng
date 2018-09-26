@@ -1,6 +1,7 @@
 {% assign breadcrumb = page.url | split: "/" | shift %}
 <nav aria-label="breadcrumb">
-    <ol class="breadcrumb">
+    <!-- TODO: bootstrap breadcrumb is flex and has not ::before & after tags -->
+    <ol class="breadcrumb mb-0">
         <li class="breadcrumb-item">
             <a href="{{ "/" | relative_url }}">Home</a>
         </li>

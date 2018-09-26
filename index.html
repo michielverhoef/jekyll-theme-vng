@@ -1,6 +1,22 @@
 ---
 title: Home
 layout: default
+date: "25 september 2018"
 ---
 
-Home Page
+<p>some text bla bla bla</p>
+
+<!-- <h4>header 4</h4> -->
+
+{% capture lorem %}
+<h5>Some header</h5>
+
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ultricies quis turpis sit amet venenatis. Mauris
+    euismod imperdiet nisl, nec imperdiet dolor egestas sed. Pellentesque auctor felis sit amet turpis accumsan
+    volutpat. Pellentesque vestibulum congue ex eu tempor. Ut in urna eros. Donec id sapien interdum, consequat risus
+    non, pellentesque turpis. Nulla a eros ac nisi mattis ullamcorper. Maecenas eget malesuada sapien, sed mollis diam.</p>
+{% endcapture %}
+
+{% for i in (1..3) %}
+    {{ lorem }}
+{% endfor %}
