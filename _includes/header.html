@@ -5,6 +5,7 @@
 {% endcomment %}
 
 <header>
+        {% comment %}
         <div class="container top-header">
             <nav>
                 <ul class="nav justify-content-end">
@@ -21,8 +22,9 @@
         </div>
         <div class="container main-header">
             <nav class="navbar navbar-expand-lg p-0">
+                <!-- ADD: button:before with  search icon -->
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#headerNavbarContent" aria-controls="headerNavbarContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
+                    <span class="navbar-toggler-icon">Menu</span>
                 </button>
 
                 <a class="navbar-brand" href="{{"/"|relative_url}}">VNG</a>
@@ -49,4 +51,85 @@
                 </div>
             </nav>
         </div>
+        {% endcomment %}
+
+        <!-- Only show on large viewports-->
+        <div class="d-none d-sm-none d-md-none d-lg-block">
+            <span class="position-absolute">Visible navigation</span>
+            <div class="container top-header">
+                <nav>
+                    <ul class="nav justify-content-end">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{"/"|relative_url }}">{{ site.title }}</a>
+                        </li>
+                        {% for item in site.pages %}
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ item.url|relative_url }}">{{ item.title | escape }}</a>
+                            </li>
+                        {% endfor %}
+                    </ul>  
+                </nav>  
+            </div>
+
+            <div class="container main-header">
+                <nav class="navbar navbar-expand-lg">
+                    <a class="navbar-brand" href="{{"/"|relative_url}}">VNG</a>
+                    <ul class="navbar-nav mr-auto">
+                        {% for item in site.pages %} <!-- need active class -->
+                            <li class="nav-item{% if item.url == page.url %} active{% endif %}">
+                                <a class="nav-link" href="{{ item.url | relative_url }}">{{ item.title }}</a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                    <div class="dummy">
+                        <form class="form-inline my-2 my-lg-0">
+                            <fieldset>
+                                <label class="sr-only" for="edit-keys">Zoeken</label>
+                            </fieldset>
+                            <input id="edit-keys" class="form-control mr-sm-2 input-search" type="search" placeholder="Zoeken" aria-label="Search">
+                            <div class="form-actions">
+                                <button class="btn my-2 my-sm-0 btn-search" type="submit">Zoeken</button>
+                            </div>
+                        </form>
+                    </div>
+                </nav>
+            </div>
+
+        </div>
+
+        <!-- Only show on small viewports -->
+        <div class="d-lg-none d-xl-none nav-text-blue small-navigation">
+            <span class="d-block" style="z-index: 500;">Hidden navigation</span>
+            
+            <nav class="navbar bg-light-blue">
+                <button class="navbar-toggler menu-icon" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent">
+                    Menu
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarToggleExternalContent">
+                    <ul class="nav">
+                        {% for i in (1..2) %}
+                            {% for item in site.pages %}
+                                <li class="nav-item{% if item.url == page.url %} active{% endif %}">
+                                    <a class="nav-link" href="{{ item.url | relative_url }}">{{ item.title }}</a>
+                                </li>
+                            {% endfor %}
+                        {% endfor %}
+                    </ul>
+                    <div class="dummy">
+                        <form class="form-inline my-2 my-lg-0">
+                            <fieldset>
+                                <label class="sr-only" for="edit-keys">Zoeken</label>
+                            </fieldset>
+                            <input id="edit-keys" class="form-control mr-sm-2 input-search" type="search" placeholder="Zoeken" aria-label="Search">
+                            <div class="form-actions">
+                                <button class="btn my-2 my-sm-0 btn-search" type="submit">Zoeken</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>    
+            </nav>
+        </div>
+
 </header>
+

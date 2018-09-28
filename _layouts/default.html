@@ -20,19 +20,19 @@
                         {{ content }}
                     </article>
                 </section>
-                <aside class="layout-sidebar col-12 col-md-4 has-header-img">
-                    <p>{{ page.date|default: "Datum onbekend" }}</p>
+                <aside class="layout-sidebar has-header-image col-12 col-md-4">
+                    <p>Gepubliceerd: {{ page.date|default: "Datum onbekend" }}</p>
                 </aside>
+            </div>&nbsp;
+        </div>
+        <div class="container">
+            <div class="row">
+                <section class="layout-content social-region col-12 col-md-8 px-5 py-5">
+                    <h3>Deel deze pagina</h3>
+                    <a href="#" class="text-lowercase icon-">Facebook</a>
+                    <a href="#" class="text-lowercase icon-">Twitter</a>
+                </section>
             </div>
-            <section class="px-5 pb-5">
-                <div class="row">
-                    <section class="col-12 col-md-8">
-                        <h3>Deel deze pagina</h3>
-                        <a href="#">Facebook</a>
-                        <a href="#">Twitter</a>
-                    </section>
-                </div>
-            </section>
         </div>
     </main>
     {% include footer.html %}
