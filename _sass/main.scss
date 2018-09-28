@@ -1,14 +1,31 @@
 @import "variables";
 @import "bootstrap/bootstrap";
 
-@font-face {
-    font-family: 'icomoon';
-    // src:  url('fonts/icomoon.eot?p03tkt');
-    // src:  url('fonts/icomoon.eot?p03tkt#iefix') format('embedded-opentype'),
-    src: url('fonts/icomoon.woff?p03tkt') format('woff');
-    //   url('fonts/icomoon.svg?p03tkt#icomoon') format('svg');
-    font-weight: normal;
-    font-style: normal;
+/***
+    Root
+***/
+h3 {
+    font-weight: 700;
+    line-height: 1.2381;
+    font-size: 18px;
+}
+
+/***
+    Custom class
+***/
+.bg-light-blue {
+    background-color: $theme-light-blue;
+}
+
+.menu-icon::before {
+    content: "\e9bd";
+    font-family: 'icomoon' !important;
+}
+
+.nav-text-blue {
+    button { 
+        color: $theme-dark-blue
+    }
 }
 
 /***
@@ -23,7 +40,7 @@
         border-bottom: 5px solid transparent;
 
         &:hover, &:focus {
-            border-bottom: 5px solid $theme-orange;
+            border-bottom: 5px solid $primary;
             color: $nav-link-color;
         }
     }
@@ -92,6 +109,11 @@ header {
 .dummy {   
     form {
         position: relative;
+
+        .form-control::placeholder {
+            color: $theme-mid-gray;
+            opacity: 1;
+        }
     }
 
     .form-actions {
@@ -121,6 +143,16 @@ header {
     content: "\e986";
     font-family: icomoon;
     color: $theme-dark-blue;
+}
+
+.small-navigation {
+    .nav-item {
+        width: 100%;
+    }
+
+    .input-search {
+        width: 100%;
+    }
 }
 
 /***
@@ -157,67 +189,20 @@ header {
 /***
     Page content
 ***/
-@media (min-width:768px) {
-    .row {
-        -ms-flex-wrap: nowrap!important;
-        flex-wrap: nowrap!important;
-    }
-
-    .layout-content {
-        -webkit-box-flex: 0;
-        -ms-flex: 0 0 67.826%;
-        flex: 0 0 67.826%;
-        max-width: 67.826%;
-        position: relative;
-        z-index: 1;
-    }
-
-    .layout-sidebar {
-        -webkit-box-flex: 0;
-        -ms-flex: 0 0 32.174%;
-        flex: 0 0 32.174%;
-        max-width: 780px;
-    }
-
-    aside {
-        &.layout-sidebar {
-            padding: 20px 15px 0;
-
-            &.has-header-image {
-                margin-top: 30px;
-            }
-        }
-    }
-}
-
-@media(min-width: 1024) {
-    aside {
-        &.layout-sidebar {
-            margin-top: 52px;
-            padding-left: 30px;
-            &.has-header-image {
-                margin-top: 230px;
-            }
-        }
-    }
-}
-
-@media (max-width: 1023px) {
-    .page-header-img {
-        margin-bottom: -30px;
-    }   
-}
-
-@media (min-width:1200px) {
-    .layout-content {
-        padding-left: 10px;
-        padding-right: 10px;
-    }
-}
-
+// @media 1024px
 .page-header-img {
     padding: 0;
     margin: 0 0 -215px 0;
+}
+// @media 1024px
+aside { 
+    &.layout-sidebar {
+        color: $theme-dark-gray;
+        padding: 40px 35px 0;
+        // .region-sidecontent {
+            
+        // }
+    }
 }
 
 .page-title {
@@ -236,12 +221,57 @@ header {
     padding-bottom: 38px;
 }
 
-aside {
-    &.layout-sidebar {
+.social-region { 
+    h3 {
+        font-size: 20px;
+        line-height: 1.2381;
+        margin: 0 0 10px 0;
+        font-weight: 700;
+    }
+}
+
+/***
+Footer
+***/
+
+.contact {
+    background: $white;
+    border-top: 1px solid #EEE;
+    
+    // TODO: remove btn box-shadows (through bootstrap variables)
+    a:focus, a:active:focus {
+        box-shadow: none!important;
+    }
+}
+
+.footer-navigation {
+    background-color: $theme-grayish;
+    padding-bottom: 20px;
+    border-top: 3px solid $theme-darker-gray;
+
+    h2 {
+        margin: 0 0 5px;
+        padding: 30px 0 5px;
         color: $theme-dark-gray;
-        
-        .region-sidecontent {
-            
+        font-weight: 400;
+        border-bottom: 1px solid $theme-uppermid-gray;
+    }
+
+    ul {
+        padding: 0;
+        li {
+            list-style: none;
+            a {
+                display: block;
+                padding: 2px 0 10px;
+                color: $theme-dark-gray;
+                font-size: 1em;
+                text-decoration: none;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
         }
     }
 }

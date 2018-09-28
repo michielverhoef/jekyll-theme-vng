@@ -1,12 +1,18 @@
 $black: #000 !default;
 
-$theme-orange: #ed4e1b;
+$primary: #ed4e1b !default;
+$theme-light-blue: #d9eaf1;
 $theme-blue: #00a9f3;
 $theme-dark-blue: #004c7d;
+
+// TODO: Probally want to rename these gray to gray-n (like bootstrap does)
 $theme-blue-gray: #d9ebf7;
+$theme-grayish:#e6e6e6;
 $theme-gray:#d8d8d8;
 $theme-dark-gray:#535353;
-
+$theme-darker-gray: #4e4e4e;
+$theme-uppermid-gray:#b4b4b4;
+$theme-mid-gray: #999;
 
 $body-bg: #f3f3f3 !default;
 $body-color: $black !default;

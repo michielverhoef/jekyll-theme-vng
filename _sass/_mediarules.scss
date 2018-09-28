@@ -1,0 +1,130 @@
+/***
+MAX WIDTH
+***/
+
+@media (max-width:767px) {
+    .contact {
+        padding-top: 20px;
+        padding-bottom: 20px;
+
+        h3 { 
+            font-size: 24px;
+        }
+    }
+}
+
+@media (max-width: 1023px) {
+    .page-header-img {
+        margin-bottom: -30px;
+    }   
+}
+
+@media (max-width: 1070px) {
+    .input-search {
+        width: 280px;
+    }
+}
+
+/***
+MIN WIDTH
+***/
+
+@media (min-width:768px) {
+    .row {
+        -ms-flex-wrap: nowrap!important;
+        flex-wrap: nowrap!important;
+    }
+
+    .layout-content {
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 67.826%;
+        flex: 0 0 67.826%;
+        max-width: 67.826%;
+        position: relative;
+        z-index: 1;
+    }
+
+    .layout-sidebar {
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 32.174%;
+        flex: 0 0 32.174%;
+        max-width: 780px;
+    }
+
+    aside {
+        &.layout-sidebar {
+            padding: 20px 15px 0;
+
+            &.has-header-image {
+                margin-top: 30px;
+            }
+        }
+    }
+
+    .contact {  
+        h3 {
+            font-size: 32px;
+            padding-right:20px;
+            float:left;
+        }
+    
+        a {
+            margin-top: -8px;
+            float: right;
+        }
+    }
+}
+
+@media (min-width: 1024px) {
+
+    .layout-sidebar-second {
+        margin-top: 52px;
+        padding-left: 30px;
+    }
+
+    aside {
+        &.layout-sidebar {
+            &.has-header-image {
+                margin-top: 230px;
+            }
+        }
+    }
+
+    .contact {
+        padding-top: 42px;
+        padding-bottom: 32px;
+    }
+}
+
+@media (min-width: 1070px) {
+    .input-search {
+        width: 280px;
+    }
+}
+
+@media (min-width:1200px) {
+    .layout-content {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}
+
+/***
+MIN and MAX WIDTH
+***/
+
+@media (min-width: 576px) and (max-width: 991px) {
+    .small-navigation {
+        .nav-item {
+            width: 50%;
+        }
+    }
+    
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    .contact {
+        padding-top: 40px;
+        padding-bottom: 22px;
+    }
+}
