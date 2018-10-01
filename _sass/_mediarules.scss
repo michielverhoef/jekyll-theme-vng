@@ -2,7 +2,25 @@
 MAX WIDTH
 ***/
 
+@media (max-width: 575px) {
+    .small-nav-footer {
+        .menu {
+            .menu-item {
+                width: 100%;
+            }
+        }
+    }
+}
+
 @media (max-width:767px) {
+    h1 {
+        font-size: $font-size-base * 1.375;
+    }
+
+    h2 {
+        font-size: $font-size-base * 1.125;
+    }
+
     .contact {
         padding-top: 20px;
         padding-bottom: 20px;
@@ -20,8 +38,10 @@ MAX WIDTH
 }
 
 @media (max-width: 1070px) {
-    .input-search {
-        width: 280px;
+    .main-header {
+        .input-search {
+            width: 200px;
+        }
     }
 }
 
@@ -29,7 +49,22 @@ MAX WIDTH
 MIN WIDTH
 ***/
 
+@media (min-width: 576px) {
+    .small-nav-header {
+        .navbar-nav {
+            .nav-item {
+                width: calc(50% - 5px);
+                margin-right: 5px;
+            }
+        }
+    }
+}
+
 @media (min-width:768px) {
+    h2 {
+        font-size: $font-size-base * 1.25;
+    }
+
     .row {
         -ms-flex-wrap: nowrap!important;
         flex-wrap: nowrap!important;
@@ -73,9 +108,33 @@ MIN WIDTH
             float: right;
         }
     }
+
+    .social-region { 
+        a {
+            margin-right: 40px;
+        }
+    }
+}
+
+@media (min-width: 992px) {
+    .main-header {
+        .navbar-nav {
+            .nav-link {
+                font-size: $font-size-base * 1.125;
+                line-height: 1.5rem;
+            }
+        }
+    }
 }
 
 @media (min-width: 1024px) {
+    h1 {
+        font-size: $font-size-base * 2.875;
+    }
+
+    .page-content { 
+        padding: 40px 40px 20px 40px;
+    }
 
     .layout-sidebar-second {
         margin-top: 52px;
@@ -97,8 +156,10 @@ MIN WIDTH
 }
 
 @media (min-width: 1070px) {
-    .input-search {
-        width: 280px;
+    .main-header {
+        .input-search {
+            width: 280px;
+        }
     }
 }
 
@@ -113,16 +174,11 @@ MIN WIDTH
 MIN and MAX WIDTH
 ***/
 
-@media (min-width: 576px) and (max-width: 991px) {
-    .small-navigation {
-        .nav-item {
-            width: 50%;
-        }
-    }
-    
-}
-
 @media (min-width: 768px) and (max-width: 1023px) {
+    h1 {
+        font-size: $font-size-base * 1.5;
+    }
+
     .contact {
         padding-top: 40px;
         padding-bottom: 22px;
