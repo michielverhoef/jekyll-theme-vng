@@ -1,6 +1,13 @@
 ---
-title: onderwerpen
+title: Onderwerpen
 layout: default
 ---
 
-Lijst van onderwerpen
+<p>
+    Lijst van onderwerpen
+</p>
+<section class="subject-list">
+    {% for i in (1..7) %}
+        <a href="#" class="">anchor-{{ i }}</a>
+    {% endfor %}
+</section>

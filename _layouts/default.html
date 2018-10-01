@@ -15,7 +15,7 @@
         <div class="container">
             <div class="row">
                 <section class="layout-content col-12">
-                    <article class="px-5 py-5 bg-light">
+                    <article class="page-content bg-light">
                         <h1 class="page-title">{{ page.title }}</h1>
                         {{ content }}
                     </article>
@@ -23,14 +23,12 @@
                 <aside class="layout-sidebar has-header-image col-12 col-md-4">
                     <p>Gepubliceerd: {{ page.date|default: "Datum onbekend" }}</p>
                 </aside>
-            </div>&nbsp;
-        </div>
-        <div class="container">
+            </div>
             <div class="row">
                 <section class="layout-content social-region col-12 col-md-8 px-5 py-5">
                     <h3>Deel deze pagina</h3>
-                    <a href="#" class="text-lowercase icon-">Facebook</a>
-                    <a href="#" class="text-lowercase icon-">Twitter</a>
+                    <a href="#" class="text-lowercase icon-" rel="noopener noreferrer">Facebook</a>
+                    <a href="#" class="text-lowercase icon-" rel="noopener noreferrer">Twitter</a>
                 </section>
             </div>
         </div>

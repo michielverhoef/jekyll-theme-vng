@@ -5,63 +5,12 @@
 {% endcomment %}
 
 <header>
-        {% comment %}
-        <div class="container top-header">
-            <nav>
-                <ul class="nav justify-content-end">
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{"/"|relative_url }}">{{ site.title }}</a>
-                    </li>
-                    {% for item in site.pages %}
-                        <li class="nav-item">
-                            <a class="nav-link{% if item.url == page.url %} active{% endif %}" href="{{ item.url|relative_url }}">{{ item.title | escape }}</a>
-                        </li>
-                    {% endfor %}
-                </ul>  
-            </nav>  
-        </div>
-        <div class="container main-header">
-            <nav class="navbar navbar-expand-lg p-0">
-                <!-- ADD: button:before with  search icon -->
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#headerNavbarContent" aria-controls="headerNavbarContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon">Menu</span>
-                </button>
-
-                <a class="navbar-brand" href="{{"/"|relative_url}}">VNG</a>
-                <div class="collapse navbar-collapse" id="headerNavbarContent">
-                    <ul class="navbar-nav mr-auto">
-                        {% for item in site.pages %}
-                            <li class="nav-item{% if item.url == page.url %} active{% endif %}">
-                                <a class="nav-link" href="{{ item.url | relative_url }}">{{ item.title }}</a>
-                            </li>
-                        {% endfor %}
-                    </ul>
-                    <div class="dummy">
-                        <form class="form-inline my-2 my-lg-0">
-                            <fieldset>
-                                <label class="sr-only" for="edit-keys">Zoeken</label>
-                            </fieldset>
-                            <input id="edit-keys" class="form-control mr-sm-2 input-search" type="search" placeholder="Zoeken" aria-label="Search">
-                            <div class="form-actions">
-                                <button class="btn my-2 my-sm-0 btn-search" type="submit">Zoeken</button>
-                            </div>
-                        </form>
-                    </div>
-                    
-                </div>
-            </nav>
-        </div>
-        {% endcomment %}
-
         <!-- Only show on large viewports-->
         <div class="d-none d-sm-none d-md-none d-lg-block">
             <span class="position-absolute">Visible navigation</span>
             <div class="container top-header">
                 <nav>
                     <ul class="nav justify-content-end">
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{"/"|relative_url }}">{{ site.title }}</a>
-                        </li>
                         {% for item in site.pages %}
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ item.url|relative_url }}">{{ item.title | escape }}</a>
@@ -75,18 +24,18 @@
                 <nav class="navbar navbar-expand-lg">
                     <a class="navbar-brand" href="{{"/"|relative_url}}">VNG</a>
                     <ul class="navbar-nav mr-auto">
-                        {% for item in site.pages %} <!-- need active class -->
-                            <li class="nav-item{% if item.url == page.url %} active{% endif %}">
-                                <a class="nav-link" href="{{ item.url | relative_url }}">{{ item.title }}</a>
+                        {% for item in site.html_pages %} <!-- TODO: need active class -->
+                            <li class="nav-item">
+                                <a class="nav-link{% if item.url == page.url %} active{% endif %}" href="{{ item.url | relative_url }}">{{ item.title }}</a>
                             </li>
                         {% endfor %}
                     </ul>
                     <div class="dummy">
-                        <form class="form-inline my-2 my-lg-0">
+                        <form class="form-inline">
                             <fieldset>
                                 <label class="sr-only" for="edit-keys">Zoeken</label>
+                                <input id="edit-keys" class="form-control mr-sm-2 input-search" type="search" placeholder="Zoeken" aria-label="Search">
                             </fieldset>
-                            <input id="edit-keys" class="form-control mr-sm-2 input-search" type="search" placeholder="Zoeken" aria-label="Search">
                             <div class="form-actions">
                                 <button class="btn my-2 my-sm-0 btn-search" type="submit">Zoeken</button>
                             </div>
@@ -107,26 +56,40 @@
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarToggleExternalContent">
-                    <ul class="nav">
-                        {% for i in (1..2) %}
-                            {% for item in site.pages %}
-                                <li class="nav-item{% if item.url == page.url %} active{% endif %}">
-                                    <a class="nav-link" href="{{ item.url | relative_url }}">{{ item.title }}</a>
+                    <div class="small-nav-header">
+                        <ul class="nav navbar-nav">
+                            {% for i in (1..2) %}
+                                {% for item in site.html_pages %}
+                                    <li class="nav-item">
+                                        <a class="nav-link {% if item.url == page.url %} active{% endif %}" href="{{ item.url | relative_url }}">{{ item.title }}</a>
+                                    </li>
+                                {% endfor %}
+                            {% endfor %}
+                        </ul>
+                        <div class="dummy mb-3">
+                            <form>
+                                <fieldset class="w-100">
+                                    <label class="sr-only" for="edit-keys">Zoeken</label>
+                                    <input id="edit-keys" class="form-control mr-sm-2 input-search" type="search" placeholder="Zoeken" aria-label="Search">
+                                </fieldset>
+                                <div class="form-actions">
+                                    <button class="btn my-2 my-sm-0 btn-search" type="submit">Zoeken</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="small-nav-footer">
+                        <ul class="menu">
+                            {% for item in (1..5) %}
+                                <li class="menu-item">
+                                    {% comment %}<a href="{{ item.url|relative_url }}">{{ item.title | escape }}</a>{% endcomment %}
+                                    <a href="#">item {{ item }}</a>
                                 </li>
                             {% endfor %}
-                        {% endfor %}
-                    </ul>
-                    <div class="dummy">
-                        <form class="form-inline my-2 my-lg-0">
-                            <fieldset>
-                                <label class="sr-only" for="edit-keys">Zoeken</label>
-                            </fieldset>
-                            <input id="edit-keys" class="form-control mr-sm-2 input-search" type="search" placeholder="Zoeken" aria-label="Search">
-                            <div class="form-actions">
-                                <button class="btn my-2 my-sm-0 btn-search" type="submit">Zoeken</button>
-                            </div>
-                        </form>
+                        </ul>
                     </div>
+
                 </div>    
             </nav>
         </div>
