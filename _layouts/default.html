@@ -6,8 +6,8 @@
         <div>
             {% include breadcrumb.html %}
             <div class="page-header-img">
-                {% assign source = page.header-img | relative_url | default: "holder.js/1400x480?auto=yes&bg=2a2025" %}
-                <img class="img-fluid d-block my-0 mx-auto" src="{{ source }}">
+                {% assign source = page.header-img | relative_url %}
+                <img class="img-fluid d-block my-0 mx-auto" {% if source %} src="{{ source }}" {% else %} data-src="holder.js/1400x480?auto=yes&bg=2a2025" {% endif %}>
             </div>
         </div>
 
