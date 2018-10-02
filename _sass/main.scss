@@ -46,6 +46,10 @@ h4 {
     background-color: $theme-light-blue;
 }
 
+.bg-blue {
+    background-color: $theme-blue;
+}
+
 .menu-icon::before {
     content: "\e9bd";
     font-family: 'icomoon' !important;
@@ -220,23 +224,6 @@ header {
     a {
         color: $black;
         text-decoration: none;
-    }
-
-    &::before, &::after {
-        content: '';
-        background: inherit;
-        position: absolute;
-        top: 0;
-        bottom: 0;
-    }
-
-    &::before {
-        right: 100%;
-        width: 100vw;
-    }
-    &::after {
-        left: 100%;
-        width: 100vw;
     }
 }
 
