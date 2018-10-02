@@ -10,7 +10,7 @@
             <div class="container top-header">
                 <nav>
                     <ul class="nav justify-content-end">
-                        {% for item in site.pages %}
+                        {% for item in site.html_pages %}
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ item.url|relative_url }}">{{ item.title | escape }}</a>
                             </li>
@@ -23,11 +23,12 @@
                 <nav class="navbar navbar-expand-lg">
                     <a class="navbar-brand" href="{{"/"|relative_url}}">VNG</a>
                     <ul class="navbar-nav mr-auto">
-                        {% for item in site.html_pages %} <!-- TODO: need active class -->
+                        {% assign sorted_navigation = site.data.navigation | sort: 'weight' %}
+                        {% for nav in sorted_navigation %}
                             <li class="nav-item">
-                                <a class="nav-link{% if item.url == page.url %} active{% endif %}" href="{{ item.url | relative_url }}">{{ item.title }}</a>
+                                <a class="nav-link{% if nav.link == page.url %} active{% endif %}" href="{{ nav.link | relative_url }}">{{ nav.name }}</a>
                             </li>
-                        {% endfor %}
+                        {% endfor%}
                     </ul>
                     <div class="dummy">
                         <form class="form-inline">
@@ -58,12 +59,11 @@
                 <div class="collapse navbar-collapse" id="navbarToggleExternalContent">
                     <div class="small-nav-header">
                         <ul class="nav navbar-nav">
-                            {% for i in (1..2) %}
-                                {% for item in site.html_pages %}
-                                    <li class="nav-item">
-                                        <a class="nav-link {% if item.url == page.url %} active{% endif %}" href="{{ item.url | relative_url }}">{{ item.title }}</a>
-                                    </li>
-                                {% endfor %}
+                            {% assign sorted_navigation = site.data.navigation | sort: 'weight' %}
+                            {% for nav in sorted_navigation %}
+                                <li class="nav-item">
+                                    <a class="nav-link {% if nav.url == page.url %} active{% endif %}" href="{{ nav.url | relative_url }}">{{ nav.name }}</a>
+                                </li>
                             {% endfor %}
                         </ul>
                         <div class="dummy mb-3">
@@ -81,10 +81,9 @@
 
                     <div class="small-nav-footer">
                         <ul class="menu">
-                            {% for item in (1..5) %}
+                            {% for item in site.html_pages %}
                                 <li class="menu-item">
-                                    {% comment %}<a href="{{ item.url|relative_url }}">{{ item.title | escape }}</a>{% endcomment %}
-                                    <a href="#">item {{ item }}</a>
+                                    <a href="{{ item.url|relative_url }}">{{ item.title | escape }}</a>
                                 </li>
                             {% endfor %}
                         </ul>

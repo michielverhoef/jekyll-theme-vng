@@ -1,0 +1,22 @@
+---
+layout: default
+---
+
+<p>
+    Lijst van onderwerpen
+</p>
+<section class="subject-list">
+    {% assign pages = site.content | where: "parent", page.name | sort: weight%}
+    {% if pages.size > 0 %}
+        {% for page in pages %}
+            <a href="{{ page.url | relative_url }}">{{ page.title | escaped }}</a>
+        {% endfor %}
+    {% else %}
+        {% assign sorted_navigation = site.data.navigation | sort: 'weight' %}
+        {% for nav in sorted_navigation %}
+            <a href="{{ nav.link | relative_url }}">{{ nav.name | escaped }}</a>
+        {% endfor %}
+    {% endif %}
+    
+
+</section>

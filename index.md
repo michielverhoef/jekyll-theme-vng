@@ -1,7 +1,7 @@
 ---
 title: Home
 layout: default
-date: "25 september 2018"
+date: 25-09-2018
 ---
 
 <p>Typing some text here to see the results of css.</p>
@@ -16,8 +16,20 @@ date: "25 september 2018"
 {% endcapture %}
 
 {% for i in (2..6) %}
-    <h{{ i }}>Header {{ i }}</h{{ i }}>
-    <p>Some dummy text haHAA</p>
+  <h{{ i }}>Header {{ i }}</h{{ i }}>
+  <p>Some dummy text haHAA</p>
 {% endfor %}
+
+<h2>Code block</h2>
+
+```py
+def hello_world():
+    print("hello world!")
+
+
+if __name__ == "__main__":
+    hello_world()
+
+```
 
 {{ lorem }}

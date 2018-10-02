@@ -19,7 +19,7 @@
                     </article>
                 </section>
                 <aside class="layout-sidebar has-header-image col-12 col-md-4">
-                    <p>Gepubliceerd: {{ page.date|default: "Datum onbekend" }}</p>
+                    <p>Gepubliceerd: {{ page.date | date_to_long_string | default: "" }}</p>
                 </aside>
             </div>
             <div class="row">
