@@ -107,42 +107,40 @@ header {
     height: 45px;
 }
 
-.input-search {
-    padding-right: 35px;
-    background-color: $body-bg;
-    height: 38px;
-    line-height: 38px;
-    border: 0px;
+.search {
+    position: relative;
 
-    &:focus {
-        background: $body-bg;
-        border: none;
-        outline: none;
-        box-shadow: none;
-    }
-}
+    .form-control {
+        padding-right: 45px;
+        background-color: $body-bg;
+        height: 38px;
+        line-height: 38px;
+        border: 0px;
 
-.btn-search {
-    display: inline-block;
-    // height: 38px;
-    // width: auto;
-    // line-height: 38px;
-    background-color: $theme-blue-gray;
-    color: #000;
+        &:focus {
+            background: $body-bg;
+            border: none;
+            outline: none;
+            box-shadow: none;
+        }
 
-    &:hover, &:active, &:focus {
-        background-color: $theme-blue-gray;
-        color: #000;
-    }
-}
-
-.dummy {   
-    form {
-        position: relative;
-
-        .form-control::placeholder {
+        &::placeholder {
             color: $theme-mid-gray;
             opacity: 1;
+        }
+    }
+
+    .btn-search {
+        display: inline-block;
+        // height: 38px;
+        // width: auto;
+        // line-height: 38px;
+        background-color: $theme-blue-gray;
+        color: #000;
+    
+        &:hover, &:active, &:focus {
+            background-color: $theme-blue-gray;
+            color: #000;
         }
     }
 
@@ -169,7 +167,7 @@ header {
     }
 }
 
-.icon-search::before, .dummy .form-actions::before {
+.icon-search::before, .search .form-actions::before {
     content: "\e986";
     font-family: icomoon;
     color: $theme-dark-blue;

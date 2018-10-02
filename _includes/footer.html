@@ -33,8 +33,18 @@
         </div>  
     </div>
 
-    <script type="text/javascript" src="{{ "/assets/vendor/jquery/jquery.min.js"|relative_url }}"></script>
-    <script type="text/javascript" src="{{ "/assets/vendor/popper_js/popper.min.js"|relative_url }}"></script>
-    <script type="text/javascript" src="{{ "/assets/vendor/bootstrap/js/bootstrap.min.js"|relative_url }}"></script>
-    <script type="text/javascript" src="{{ "/assets/vendor/holder_js/holder.min.js"|relative_url }}"></script>
+    <script type="text/javascript" src="{{ "/assets/vendor/jquery/jquery.min.js" | relative_url }}"></script>
+    <script type="text/javascript" src="{{ "/assets/vendor/popper_js/popper.min.js" | relative_url }}"></script>
+    <script type="text/javascript" src="{{ "/assets/vendor/bootstrap/js/bootstrap.min.js" | relative_url }}"></script>
+    <script type="text/javascript" src="{{ "/assets/vendor/holder_js/holder.min.js" | relative_url }}"></script>
+    <script type="text/javascript" src="{{ "/assets/js/docsearch.min.js" | relative_url }}"></script>
+    <script>
+        docsearch({
+                apiKey: 'f5d0c017e70ffe180e05515a2869c1e4',
+                indexName: 'nlx',
+                inputSelector: '#search-input',
+                debug: false 
+            });
+    </script>
+
 </footer>

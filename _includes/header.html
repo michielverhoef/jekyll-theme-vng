@@ -1,9 +1,3 @@
-{% comment %}
-    {%- assign default_paths = site.pages | map: "path" -%}
-    Map site.pages to a variable
-    Use where clause to get pages based on the mapped values
-{% endcomment %}
-
 <header>
         <!-- Only show on large viewports-->
         <div class="d-none d-sm-none d-md-none d-lg-block">
@@ -16,12 +10,16 @@
                             </li>
                         {% endfor %}
                     </ul>  
+
                 </nav>  
             </div>
 
             <div class="container main-header">
                 <nav class="navbar navbar-expand-lg">
-                    <a class="navbar-brand" href="{{"/"|relative_url}}">VNG</a>
+                    <a class="navbar-brand" href="{{"/"|relative_url}}">
+                        <img src="{{ "/assets/img/logo-vng-realisatie.png" | relative_url }}" title="VNG" alt="VNG">
+                    </a>
+
                     <ul class="navbar-nav mr-auto">
                         {% assign sorted_navigation = site.data.navigation | sort: 'weight' %}
                         {% for nav in sorted_navigation %}
@@ -30,17 +28,14 @@
                             </li>
                         {% endfor%}
                     </ul>
-                    <div class="dummy">
-                        <form class="form-inline">
-                            <fieldset>
-                                <label class="sr-only" for="edit-keys">Zoeken</label>
-                                <input id="edit-keys" class="form-control mr-sm-2 input-search" type="search" placeholder="Zoeken" aria-label="Search">
-                            </fieldset>
-                            <div class="form-actions">
-                                <button class="btn my-2 my-sm-0 btn-search" type="submit">Zoeken</button>
-                            </div>
-                        </form>
+
+                    <div class="search">
+                        <input type="search" class="form-control" id="search-input" placeholder="Search..." autocomplete="off" spellcheck="false" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-owns="algolia-autocomplete-listbox-0">
+                        <div class="form-actions">
+                            <button class="btn my-2 my-sm-0 btn-search" type="submit">Zoeken</button>
+                        </div>
                     </div>
+
                 </nav>
             </div>
 
@@ -49,8 +44,9 @@
         <!-- Only show on small viewports -->
         <div class="d-lg-none d-xl-none nav-text-blue small-navigation">
             <a href="{{"/"|relative_url}}">
-                <img class="d-block" data-src="holder.js/87x58?bg=2a2025" title="Home">
+                <img src="{{ "/assets/img/logo-vng-realisatie.png" | relative_url }}" title="VNG" alt="VNG">
             </a>
+
             <nav class="navbar bg-light-blue">
                 <button class="navbar-toggler menu-icon" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent">
                     Menu
@@ -66,17 +62,14 @@
                                 </li>
                             {% endfor %}
                         </ul>
-                        <div class="dummy mb-3">
-                            <form>
-                                <fieldset class="w-100">
-                                    <label class="sr-only" for="edit-keys">Zoeken</label>
-                                    <input id="edit-keys" class="form-control mr-sm-2 input-search" type="search" placeholder="Zoeken" aria-label="Search">
-                                </fieldset>
-                                <div class="form-actions">
-                                    <button class="btn my-2 my-sm-0 btn-search" type="submit">Zoeken</button>
-                                </div>
-                            </form>
+                        
+                        <div class="search mb-3">
+                            <input type="search" class="form-control w-100" id="search-input" placeholder="Search..." autocomplete="off" spellcheck="false" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-owns="algolia-autocomplete-listbox-0">
+                            <div class="form-actions">
+                                <button class="btn my-2 my-sm-0 btn-search" type="submit">Zoeken</button>
+                            </div>
                         </div>
+
                     </div>
 
                     <div class="small-nav-footer">
@@ -88,8 +81,8 @@
                             {% endfor %}
                         </ul>
                     </div>
+                </div>
 
-                </div>    
             </nav>
         </div>
 

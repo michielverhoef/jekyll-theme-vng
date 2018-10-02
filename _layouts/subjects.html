@@ -2,9 +2,6 @@
 layout: default
 ---
 
-<p>
-    Lijst van onderwerpen
-</p>
 <section class="subject-list">
     {% assign pages = site.content | where: "parent", page.name | sort: weight%}
     {% if pages.size > 0 %}
@@ -17,6 +14,4 @@ layout: default
             <a href="{{ nav.link | relative_url }}">{{ nav.name | escaped }}</a>
         {% endfor %}
     {% endif %}
-    
-
 </section>
