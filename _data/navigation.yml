@@ -1,8 +1,8 @@
 - name: Introductie
   link: /content/introductie/
   weight: 3
-- name: Bronnen
-  link: /content/bronnen/
+- name: Community
+  link: /content/community/
   weight: 1
 - name: Ontwikkelaars
   link: /content/ontwikkelaars/
