@@ -1,3 +1,12 @@
+{% capture navigation %}
+    {% assign sorted_navigation = site.data.navigation | sort: 'weight' %}
+    {% for nav in sorted_navigation %}
+        <li class="nav-item">
+            <a class="nav-link {% if nav.link == page.url %} active{% endif %}" href="{{ nav.link | relative_url }}">{{ nav.name }}</a>
+        </li>
+    {% endfor %}
+{% endcapture %}
+
 <header>
         <!-- Only show on large viewports-->
         <div class="d-none d-sm-none d-md-none d-lg-block">
@@ -21,12 +30,7 @@
                     </a>
 
                     <ul class="navbar-nav mr-auto">
-                        {% assign sorted_navigation = site.data.navigation | sort: 'weight' %}
-                        {% for nav in sorted_navigation %}
-                            <li class="nav-item">
-                                <a class="nav-link{% if nav.link == page.url %} active{% endif %}" href="{{ nav.link | relative_url }}">{{ nav.name }}</a>
-                            </li>
-                        {% endfor%}
+                        {{ navigation }}
                     </ul>
 
                     <div class="search">
@@ -54,13 +58,9 @@
 
                 <div class="collapse navbar-collapse" id="navbarToggleExternalContent">
                     <div class="small-nav-header">
+
                         <ul class="nav navbar-nav">
-                            {% assign sorted_navigation = site.data.navigation | sort: 'weight' %}
-                            {% for nav in sorted_navigation %}
-                                <li class="nav-item">
-                                    <a class="nav-link {% if nav.url == page.url %} active{% endif %}" href="{{ nav.url | relative_url }}">{{ nav.name }}</a>
-                                </li>
-                            {% endfor %}
+                             {{ navigation }}
                         </ul>
                         
                         <div class="search mb-3">
