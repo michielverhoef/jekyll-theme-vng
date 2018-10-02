@@ -1,23 +1,24 @@
 {% assign breadcrumb = page.url | split: "/" | shift %}
-<nav aria-label="breadcrumb">
-    <!-- TODO: bootstrap breadcrumb is flex and has not ::before & after tags -->
-    <ol class="breadcrumb mb-0">
-        <li class="breadcrumb-item">
-            <a href="{{ "/" | relative_url }}">Home</a>
-        </li>
-        {% assign path = "" %}
-        {% for crumb in breadcrumb %}
-            {% if forloop.last %}
-            <li class="breadcrumb-item active" aria-current="page">
-                {{ page.title }}
+<nav aria-label="breadcrumb" class="bg-blue">
+    <div class="container">
+        <ol class="breadcrumb mb-0">
+            <li class="breadcrumb-item">
+                <a href="{{ "/" | relative_url }}">Home</a>
             </li>
-            {% else %}
-            {% assign path = path | append:"/" | append: crumb %}
-                <li class="breadcrumb-item">
-                    <a href="{{ path|relative_url }}">{{ crumb }}</a>
+            {% assign path = "" %}
+            {% for crumb in breadcrumb %}
+                {% if forloop.last %}
+                <li class="breadcrumb-item active" aria-current="page">
+                    {{ page.title }}
                 </li>
-            {% endif %}
-        {% endfor %}
-    </ol>
+                {% else %}
+                {% assign path = path | append:"/" | append: crumb %}
+                    <li class="breadcrumb-item">
+                        <a href="{{ path|relative_url }}">{{ crumb }}</a>
+                    </li>
+                {% endif %}
+            {% endfor %}
+        </ol>
+    </div>
 </nav>
 
