@@ -13,16 +13,34 @@
 
         <div class="container">
             <div class="row">
+                
                 <section class="layout-content col-12">
                     <article class="page-content bg-light">
                         <h1 class="page-title">{{ page.title }}</h1>
                         {{ content }}
                     </article>
                 </section>
+
                 <aside class="layout-sidebar has-header-image col-12 col-md-4">
-                    <p>Gepubliceerd: {{ page.date | date_to_long_string | default: "" }}</p>
+                    <p>Gepubliceerd: {{ page.date | date_to_long_string | default: "-" }}</p>
+
+                    {% if page.parent %}
+                        <section>
+                            <h2>{{ page.parent | capitalize }}</h2>
+                            {% assign pages = site.content | where: "parent", page.parent | sort: weight%}
+                            <ol class="list-unstyled">
+                                {% for item in pages %}
+                                    <li>
+                                        <a href="{{ item.url | relative_url }}" class="{% if item.url == page.url %}active{% endif %}">{{ item.title | escaped }}</a>
+                                    </li>
+                                {% endfor %}
+                            </ol>
+                        </section>
+                    {% endif %}
+
                 </aside>
             </div>
+
             <div class="row">
                 <section class="layout-content social-region col-12 col-md-8 px-5 py-5">
                     <h3>Deel deze pagina</h3>

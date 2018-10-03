@@ -235,6 +235,10 @@ header {
 }
 
 aside { 
+    h2 {
+        color: $black;
+    }
+
     &.layout-sidebar {
         color: $theme-dark-gray;
         padding: 40px 35px 0;
@@ -317,6 +321,9 @@ aside {
 
 .subject-list {
     columns: 2;
+}
+
+.subject-list, aside {
     a {
         position: relative;
         padding-left: 30px;
@@ -334,6 +341,13 @@ aside {
     
         &:hover::before {
             left: 5px;
+        }
+
+        &:active, &.active {
+            color: $black;
+            &::before {
+                left: 10px;
+            }
         }
     }
 }
