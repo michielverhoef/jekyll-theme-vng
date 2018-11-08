@@ -7,7 +7,7 @@
             {% include breadcrumb.html %}
             <div class="page-header-img">
                 {% assign source = page.header-img | relative_url %}
-                <img class="img-fluid d-block my-0 mx-auto" {% if source %} src="{{ source }}" {% else %} data-src="holder.js/1400x480?auto=yes&bg=2a2025" {% endif %}>
+                <img class="img-fluid d-block my-0 mx-auto" {% if source %} src="{{ source }}" {% else %} src="/assets/img/default-image.jpg" {% endif %}>
             </div>
         </div>
 
@@ -39,14 +39,6 @@
                     {% endif %}
 
                 </aside>
-            </div>
-
-            <div class="row">
-                <section class="layout-content social-region col-12 col-md-8 px-5 py-5">
-                    <h3>Deel deze pagina</h3>
-                    <a href="#" class="text-lowercase icon-" rel="noopener noreferrer">Facebook</a>
-                    <a href="#" class="text-lowercase icon-" rel="noopener noreferrer">Twitter</a>
-                </section>
             </div>
         </div>
 
