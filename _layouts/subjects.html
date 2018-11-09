@@ -13,7 +13,7 @@ layout: default
 
             {% unless remaining_path[1] == 'index' %}
                 {% if remaining_path[1]|split: '/'[1] == 'index' %}
-                    <a href="{{ child.url | relative_url }}">{{ child.title | escaped }} is a index page</a>
+                    <a href="{{ child.url | relative_url }}">{{ child.title | escaped }} is a index page {{ remaining_path[1]|split: '/'[1] }}</a>
                 {% else %}
                     {% unless remaining_path[1] contains '/' %}
                         <a href="{{ child.url | relative_url }}">{{ child.title | escaped }}</a>
