@@ -35,7 +35,7 @@ layout: default
 
             {% comment %}is_current_index: Whether child is page.{% endcomment %}
             {% if child == page %}
-                {% assign is_current_index = child == page %}
+                {% assign is_current_index = true %}
             {% else %}
                 {% assign is_current_index = false %}
             {% endif %}

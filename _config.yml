@@ -1,0 +1,38 @@
+plugins:
+  - jekyll-remote-theme
+
+remote_theme: maykinmedia/jekyll-vng-theme@theme
+
+
+markdown: kramdown
+
+plugins:
+  - jekyll-redirect-from
+
+# Serving
+show_dir_listing: false
+
+collections:
+  pages:
+    output: true
+  content:
+    output: true
+    permalink: /:path
+
+
+defaults:
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: default
+  - scope:
+      path: ""
+      type: "content"
+    values:
+      layout: default
+
+# This is default behaviour
+sass:
+  load_paths:
+    - _sass

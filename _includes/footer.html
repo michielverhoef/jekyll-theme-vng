@@ -1,38 +1,4 @@
 <footer>
-    <section class="contact clearfix">
-        <article class="container">
-                <!-- class="d-inline-block" d-inline-block float-right -->
-                <h3>Insert dummy text here?</h3>
-                <a href="#" class="btn btn-primary">Dummy click</a>
-        </article>
-    </section>
-    <div class="footer-navigation">
-        <div class="container">
-            <div class="row">
-                <section class="col-12 col-sm-6">
-                    <h2>Service</h2>
-                    <ul>
-                        {% for i in (1..6) %}
-                            <li>
-                                <a href="#">{{ i }}-link</a>
-                            </li>
-                        {% endfor %}
-                    </ul>
-                </section>
-                <section class="col-12 col-sm-6">
-                    <h2>Over deze site</h2>
-                    <ul>
-                        {% for i in (1..6) %}
-                            <li>
-                                <a href="#">{{ i }}-link</a>
-                            </li>
-                        {% endfor %}
-                    </ul>
-                </section>
-            </div>
-        </div>  
-    </div>
-
     <script type="text/javascript" src="{{ "/assets/vendor/jquery/jquery.min.js" | relative_url }}"></script>
     <script type="text/javascript" src="{{ "/assets/vendor/popper_js/popper.min.js" | relative_url }}"></script>
     <script type="text/javascript" src="{{ "/assets/vendor/bootstrap/js/bootstrap.min.js" | relative_url }}"></script>
@@ -45,5 +11,4 @@
                 debug: false 
             });
     </script>
-
 </footer>
