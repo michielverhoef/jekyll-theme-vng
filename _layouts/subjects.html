@@ -9,29 +9,57 @@ layout: default
     {% if children.size > 0 %}
 
         {% for child in children %}
-            {% assign remaining_path = child.url|split: url %}
 
-            {% unless remaining_path[1] == 'index' %}
-                {% if remaining_path[1]|split: '/'[1] == 'index' %}
-                    <a href="{{ child.url | relative_url }}">{{ child.title | escaped }} is a index page {{ remaining_path[1]|split: '/'[1] }}</a>
-                {% else %}
-                    {% unless remaining_path[1] contains '/' %}
-                        <a href="{{ child.url | relative_url }}">{{ child.title | escaped }}</a>
-                    {% endunless %}
-                {% endif %}
-            {% endunless %}
+
+            {% assign remaining_path = child.url|split: url %}
+            {% assign remaining_path = remaining_path[1] %}
+            {% assign remaining_path_parts = remaining_path|split: '/' %}
+
+
+
+            {% comment %}is_child: Whether child is a direct child of page.{% endcomment %}
+            {% if remaining_path contains '/' %}
+                {% assign is_child = false %}
+            {% else %}
+                {% assign is_child = true %}
+            {% endif %}
+
+
+            {% comment %}is_child_index: Whether child is an index of a direct child folder of page.{% endcomment %}
+            {% if remaining_path_parts[1] == 'index' %}
+                {% assign is_child_index = true %}
+            {% else %}
+                {% assign is_child_index = false %}
+            {% endif %}
+
+
+            {% comment %}is_current_index: Whether child is page.{% endcomment %}
+            {% if child == page %}
+                {% assign is_current_index = child == page %}
+            {% else %}
+                {% assign is_current_index = false %}
+            {% endif %}
+
+
+
+            {% if is_child or is_child_index %}
+                {% unless is_current_index %}
+                    <a href="{{ child.url | relative_url }}">{{ child.title | escaped }}</a>
+                {% endunless %}
+            {% endif %}
+
 
         {% endfor %}
 
     {% else %}
 
+
         {% assign sorted_navigation = site.data.navigation | sort: 'weight' %}
 
         {% for nav in sorted_navigation %}
-
             <a href="{{ nav.link | relative_url }}">{{ nav.name | escaped }}</a>
-
         {% endfor %}
+
 
     {% endif %}
 </section>
