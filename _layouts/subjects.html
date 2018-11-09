@@ -10,6 +10,7 @@ layout: default
 
         {% for page in pages %}
             {% if page.url != url %}
+                {{page.url}} {{ url }}
                 <a href="{{ page.url | relative_url }}">{{ page.title | escaped }}</a>
             {% endif %}
         {% endfor %}
