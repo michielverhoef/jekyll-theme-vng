@@ -9,7 +9,7 @@ layout: default
     {% if children.size > 0 %}
 
         {% for child in children %}
-            {% unless foo contains '/index' %}
+            {% unless child.url contains '/index' %}
                 <a href="{{ child.url | relative_url }}">{{ child.title | escaped }}</a>
             {% endif %}
         {% endfor %}
