@@ -8,31 +8,37 @@ layout: default
 
     {% if children.size > 0 %}
 
-        {% for child in children %}
-            {% assign remaining_path = child.url|split: url %}
-    <br>
+    {% for child in children %}
+        {% assign remaining_path = child.url|split: url %}
 
-            {% unless remaining_path[1] == 'index' %}
+        {% unless remaining_path[1] == 'index' %}
 
-    <em>{{remaining_path[1] }} not index</em>
+            {% if remaining_path[1]|split: '/'[1] == 'index' %}
 
+                <a href="{{ child.url | relative_url }}">{{ child.title | escaped }} is a index page</a>
 
-
-
+            {% else
 
                 {% unless remaining_path[1] contains '/' %}
-                    <a href="{{ child.url | relative_url }}">{{ child.title | escaped }}</a>
-                {% endunless %}
-            {% endunless %}
 
-        {% endfor %}
+                    <a href="{{ child.url | relative_url }}">{{ child.title | escaped }}</a>
+
+                {% endunless %}
+
+            {% endif %}
+
+        {% endunless %}
+
+    {% endfor %}
 
     {% else %}
 
         {% assign sorted_navigation = site.data.navigation | sort: 'weight' %}
 
         {% for nav in sorted_navigation %}
+
             <a href="{{ nav.link | relative_url }}">{{ nav.name | escaped }}</a>
+
         {% endfor %}
 
     {% endif %}
