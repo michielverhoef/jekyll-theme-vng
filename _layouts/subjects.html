@@ -4,14 +4,13 @@ layout: default
 
 <section class="subject-list">
     {% capture url %}{{ page.url | replace: "index", "" }}{% endcapture %}
-    {% assign pages = site.content | where_exp:"other", "other.url contains url" | sort: weight %}
+    {% assign children = site.content | where_exp:"other", "other.url contains url" | sort: weight %}
 
     {% if pages.size > 0 %}
 
-        {% for page in pages %}
-            {% if page.url != url %}
-                {{page.url}} {{ url }}
-                <a href="{{ page.url | relative_url }}">{{ page.title | escaped }}</a>
+        {% for child in children %}
+            {% if child.url != page.url' %}
+                <a href="{{ child.url | relative_url }}">{{ child.title | escaped }}</a>
             {% endif %}
         {% endfor %}
 
