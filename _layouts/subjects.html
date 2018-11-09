@@ -5,14 +5,22 @@ layout: default
 <section class="subject-list">
     {% capture url %}{{ page.url | replace: "index", "" }}{% endcapture %}
     {% assign pages = site.content | where_exp:"other", "other.url contains url" | sort: weight %}
+
     {% if pages.size > 0 %}
+
         {% for page in pages %}
-            <a href="{{ page.url | relative_url }}">{{ page.title | escaped }}</a>
+            {% if page.url != url %}
+                <a href="{{ page.url | relative_url }}">{{ page.title | escaped }}</a>
+            {% endif %}
         {% endfor %}
+
     {% else %}
+
         {% assign sorted_navigation = site.data.navigation | sort: 'weight' %}
+
         {% for nav in sorted_navigation %}
             <a href="{{ nav.link | relative_url }}">{{ nav.name | escaped }}</a>
         {% endfor %}
+
     {% endif %}
 </section>
