@@ -9,9 +9,14 @@ layout: default
     {% if children.size > 0 %}
 
         {% for child in children %}
-            {% unless child.url contains '/index' %}
-                <a href="{{ child.url | relative_url }}">{{ child.title | escaped }}</a>
+            {% assign remaining_path = other|split: index %}
+
+            {% unless remaining_path[1] == 'index' %}
+                {% unless remaining_path[1] contains '/' %}
+                    <a href="{{ child.url | relative_url }}">{{ child.title | escaped }}</a>
+                {% endunless %}
             {% endunless %}
+
         {% endfor %}
 
     {% else %}
