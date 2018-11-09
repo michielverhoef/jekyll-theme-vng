@@ -10,9 +10,11 @@ layout: default
 
         {% for child in children %}
             {% assign remaining_path = child.url|split: url %}
+    <br>
     <em>{{remaining_path[1] }}</em>
 
             {% unless remaining_path[1] == 'index' %}
+    <em>passed check 1</em><
                 {% unless remaining_path[1] contains '/' %}
                     <a href="{{ child.url | relative_url }}">{{ child.title | escaped }}</a>
                 {% endunless %}
