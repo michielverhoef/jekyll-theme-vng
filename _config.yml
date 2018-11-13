@@ -4,6 +4,7 @@ description: >-
    Jekyll version for gemma-zaken.
 
 plugins:
+  - jekyll-algolia
   - jekyll-remote-theme
 
 remote_theme: maykinmedia/jekyll-vng-theme
