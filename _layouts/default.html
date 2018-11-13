@@ -40,6 +40,16 @@
 
                 </aside>
             </div>
+
+            {% if site.github %}
+
+                <div class="row">
+                     <section class="layout-content social-region col-12 col-md-8 px-5 py-5">
+                         <a href="https://github.com/{{ site.github }}" class="text-lowercase icon-" rel="noopener noreferrer">Github</a>
+                     </section>
+                 </div>
+
+            {% endif %}
         </div>
 
     </main>

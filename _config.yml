@@ -6,8 +6,7 @@ description: >-
 plugins:
   - jekyll-remote-theme
 
-remote_theme: maykinmedia/jekyll-vng-theme@theme
-
+remote_theme: maykinmedia/jekyll-vng-theme
 
 markdown: kramdown
 
@@ -21,19 +20,20 @@ collections:
     output: true
     permalink: /:path
 
-
 defaults:
   - scope:
-      path: ""
-      type: "pages"
+      path: ''
+      type: pages
     values:
       layout: default
   - scope:
-      path: ""
-      type: "content"
+      path: ''
+      type: content
     values:
       layout: default
 
 sass:
   load_paths:
     - _sass
+
+github: VNG-Realisatie/gemma-zaken
