@@ -4,7 +4,7 @@ layout: default
 
 <section class="subject-list">
     {% capture url %}{{ page.url | replace: "index", "" }}{% endcapture %}
-    {% assign children = site.content | where_exp:"other", "other.url contains url" | sort: weight %}
+    {% assign children = site.content | where_exp:"other", "other.url contains url" | sort: "weight" | reverse  %}
 
     {% if children.size > 0 %}
 
