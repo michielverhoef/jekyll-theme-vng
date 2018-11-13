@@ -5,8 +5,9 @@
     <script type="text/javascript" src="{{ "/assets/js/docsearch.min.js" | relative_url }}"></script>
     <script>
         docsearch({
-                apiKey: 'f5d0c017e70ffe180e05515a2869c1e4',
-                indexName: 'nlx',
+                appId: '{{ site.algolia.application_id }}',
+                apiKey: '{{ site.algolia.api_key }}',
+                indexName: '{{ site.algolia.index_name }}',
                 inputSelector: '#search-input',
                 debug: false 
             });
