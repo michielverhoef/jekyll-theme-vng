@@ -1,3 +1,8 @@
+title: Jekyll VNG theme
+
+description: >-
+   Jekyll version for gemma-zaken.
+
 plugins:
   - jekyll-remote-theme
 
@@ -8,9 +13,6 @@ markdown: kramdown
 
 plugins:
   - jekyll-redirect-from
-
-# Serving
-show_dir_listing: false
 
 collections:
   pages:
@@ -32,7 +34,6 @@ defaults:
     values:
       layout: default
 
-# This is default behaviour
 sass:
   load_paths:
     - _sass
