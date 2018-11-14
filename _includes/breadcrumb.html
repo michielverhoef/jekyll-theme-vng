@@ -1,4 +1,4 @@
-{% assign path_split = page.url | split: "/" | splice  %}
+{% assign path_split = page.url | split : '/'  %}
 {% assign path_array = site.html_pages | where: 'url', '/' %}
 {% assign path_string = '' | split : '' %}
 
@@ -27,6 +27,7 @@
             {% assign path_array = path_array | push : pages[0] %}
         {% endif %}
     {% endif %}
+
 {% endfor %}
 
 

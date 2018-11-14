@@ -21,24 +21,7 @@
                     </article>
                 </section>
 
-                <aside class="layout-sidebar has-header-image col-12 col-md-4">
-                    <p>Gepubliceerd: {{ page.date | date_to_long_string | default: "-" }}</p>
-
-                    {% if page.parent %}
-                        <section>
-                            <h2>{{ page.parent | capitalize }}</h2>
-                            {% assign pages = site.content | where: "parent", page.parent | sort: weight%}
-                            <ol class="list-unstyled">
-                                {% for item in pages %}
-                                    <li>
-                                        <a href="{{ item.url | relative_url }}" class="{% if item.url == page.url %}active{% endif %}">{{ item.title | escaped }}</a>
-                                    </li>
-                                {% endfor %}
-                            </ol>
-                        </section>
-                    {% endif %}
-
-                </aside>
+                {% include sidebar.html %}
             </div>
 
             {% if site.github %}
