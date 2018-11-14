@@ -57,22 +57,22 @@
 
 <aside class="layout-sidebar has-header-image col-12 col-md-4">
     {% if page.date %}
-    <h4>Gepubliceerd:</h4>
-    <time dateimte="{{ page.date | date_to_rfc822 }}">{{ page.date | date_to_long_string }}</time>
-    <hr>
+        <h4>Gepubliceerd:</h4>
+        <time dateimte="{{ page.date | date_to_rfc822 }}">{{ page.date | date_to_long_string }}</time>
+        <hr>
     {% endif %}
 
 
     {% if is_index == false and siblings.size > 0 %}
-    <section>
-        <h2>Gerelateerde pagina's</h2>
-        <ol class="list-unstyled">
-            {% for sibling in siblings %}
-                <li>
-                    <a href="{{ sibling.url }}">{{ sibling.title }}</a>
-                </li>
-            {% endfor %}
-        </ol>
-    </section>
+        <section>
+            <h2>Gerelateerde pagina's</h2>
+            <ol class="list-unstyled">
+                {% for sibling in siblings %}
+                    <li>
+                        <a href="{{ sibling.url }}">{{ sibling.title }}</a>
+                    </li>
+                {% endfor %}
+            </ol>
+        </section>
     {% endif %}
 </aside>
