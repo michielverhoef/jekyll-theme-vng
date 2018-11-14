@@ -14,17 +14,17 @@
         {% assign path_string = path_string | push : path_part %}
         {% assign path = path_string | join : '/' %}
         {% assign url = '/' | append : path | strip %}
-        {% assign page = site.content | where : 'url' : url %}
+        {% assign pages = site.content | where : 'url' : url %}
 
 
-        {% if page[0] == nil %}
+        {% if pages[0] == nil %}
             {% assign url = url | append : '/index' %}
-            {% assign page = site.content | where : 'url' : url %}
+            {% assign pages = site.content | where : 'url' : url %}
         {% endif %}
 
 
-        {% if last_page != page[0] %}
-            {% assign path_array = path_array | push : page[0] %}
+        {% if last_page != pages[0] %}
+            {% assign path_array = path_array | push : pages[0] %}
         {% endif %}
     {% endif %}
 {% endfor %}
