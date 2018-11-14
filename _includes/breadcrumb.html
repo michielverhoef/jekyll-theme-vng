@@ -1,22 +1,44 @@
-{% assign breadcrumb = page.url | split: "/" | shift %}
+{% assign path_split = page.url | split : '/'  %}
+{% assign path_array = site.html_pages | where: 'url', '/' %}
+{% assign path_string = '' | split : '' %}
+
+
+
+{% for item in path_split %}
+
+    {% assign path_part=path_split[forloop.index] %}
+
+    {% if path_part %}
+
+        {% assign last_page = path_array.last %}
+        {% assign path_string = path_string | push : path_part %}
+        {% assign path = path_string | join : '/' %}
+        {% assign url = '/' | append : path | strip %}
+        {% assign pages = site.content | where : 'url' : url %}
+
+
+        {% if pages[0] == nil %}
+            {% assign url = url | append : '/index' %}
+            {% assign pages = site.content | where : 'url' : url %}
+        {% endif %}
+
+
+        {% if last_page != pages[0] %}
+            {% assign path_array = path_array | push : pages[0] %}
+        {% endif %}
+    {% endif %}
+
+{% endfor %}
+
+
+
 <nav aria-label="breadcrumb" class="bg-blue">
     <div class="container">
         <ol class="breadcrumb mb-0">
-            <li class="breadcrumb-item">
-                <a href="{{ "/" | relative_url }}">Home</a>
-            </li>
-            {% assign path = "" %}
-            {% for crumb in breadcrumb %}
-                {% if forloop.last %}
-                <li class="breadcrumb-item active" aria-current="page">
-                    {{ page.title }}
+            {% for page in path_array %}
+                <li class="breadcrumb-item{% if forloop.last %} active{% endif %}">
+                    <a href="{{ page.url }}">{{ page.title }}</a>
                 </li>
-                {% else %}
-                {% assign path = path | append:"/" | append: crumb %}
-                    <li class="breadcrumb-item">
-                        <a href="{{ path|relative_url }}">{{ crumb }}</a>
-                    </li>
-                {% endif %}
             {% endfor %}
         </ol>
     </div>

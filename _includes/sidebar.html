@@ -1,0 +1,78 @@
+{% assign path_split = page.url | split : '/'  %}
+{% assign siblings = '' | split : '' %}
+
+{% if path_split.last == 'index' %}
+    {% assign is_index = true %}
+{% else %}
+    {% assign is_index = false %}
+{% endif %}
+
+
+
+{% if path_split.last == 'index' %}
+    {% assign parent_path = path_split | pop | pop | join : '/' %}
+{% else %}
+    {% assign parent_path = path_split | pop | join : '/' %}
+{% endif %}
+
+
+
+{% assign children = site.content
+    | where_exp : 'child', 'child.url contains parent_path'
+    | sort : 'weight'
+    | reverse  %}
+
+
+
+{% for child in children %}
+    {% assign child_path_split = child.url | split : '/' %}
+
+    {% if child_path_split.last == 'index' %}
+        {% assign is_child_index = true %}
+    {% else %}
+        {% assign is_child_index = false %}
+    {% endif %}
+
+
+    {% if child_path_split.size == path_split.size %}
+        {% assign is_child_same_depth = true %}
+    {% else %}
+        {% assign is_child_same_depth = false %}
+    {% endif %}
+
+
+    {% if child == page %}
+        {% assign is_child_same_page = true %}
+    {% else %}
+        {% assign is_child_same_page = false %}
+    {% endif %}
+
+
+    {% if is_child_index == false and is_child_same_depth == true and is_child_same_page == false %}
+        {% assign siblings = siblings | push : child %}
+    {% endif %}
+{% endfor %}
+
+
+
+<aside class="layout-sidebar has-header-image col-12 col-md-4">
+    {% if page.date %}
+        <h4>Gepubliceerd:</h4>
+        <time dateimte="{{ page.date | date_to_rfc822 }}">{{ page.date | date_to_long_string }}</time>
+        <hr>
+    {% endif %}
+
+
+    {% if is_index == false and siblings.size > 0 %}
+        <section>
+            <h2>Gerelateerde pagina's</h2>
+            <ol class="list-unstyled">
+                {% for sibling in siblings %}
+                    <li>
+                        <a href="{{ sibling.url }}">{{ sibling.title }}</a>
+                    </li>
+                {% endfor %}
+            </ol>
+        </section>
+    {% endif %}
+</aside>
