@@ -351,3 +351,8 @@ aside {
         }
     }
 }
+
+/* Default element extensions */
+table {
+    @extend .table;
+}
