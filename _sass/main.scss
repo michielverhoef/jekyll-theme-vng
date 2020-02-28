@@ -232,6 +232,10 @@ header {
 .page-header-img {
     padding: 0;
     margin: 0 0 -215px 0;
+
+    img {
+        min-height: 215px;
+    }
 }
 
 aside { 
