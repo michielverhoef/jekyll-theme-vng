@@ -51,6 +51,9 @@ h4 {
     background-color: $theme-blue;
 }
 
+.bg-yellow {
+    background-color: $theme-yellow;
+}
 .menu-icon::before {
     content: "\e9bd";
     font-family: 'icomoon' !important;
